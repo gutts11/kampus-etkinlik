@@ -1,11 +1,11 @@
-/* Alperen — 20231047 */
+/* Alperen — 2011012045 */
 :root {
-    --no: 20231047;
-    --ton: 127;
+    --no: 2011012045;
+    --ton: 205;
     --renk-ana: hsl(var(--ton), 65%, 38%);
     --renk-ana-hover: hsl(var(--ton), 65%, 30%);
     --renk-zemin: hsl(var(--ton), 30%, 97%);
-    --font: "Palatino Linotype", Georgia, serif;
+    --font: "Times New Roman", Times, serif;
     --bosluk-m: 1rem;
     --kose: 8px;
 }
@@ -301,7 +301,7 @@ h2 {
 .form-grup textarea:focus {
     outline: none;
     border-color: var(--renk-ana);
-    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+    box-shadow: 0 0 0 2px rgba(2, 119, 189, 0.2);
 }
 
 .form-grup input[aria-invalid="true"],
