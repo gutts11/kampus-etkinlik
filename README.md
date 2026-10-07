@@ -1,4 +1,4 @@
-[https://kampus-etkinlik-sprint1.vercel.app](https://kampus-etkinlik-sprint1.vercel.app)
+[https://sprint-03-gamma.vercel.app/](https://sprint-03-gamma.vercel.app/)
 
 # Kampüs Etkinlikleri - Sprint 1, Sprint 2 & Sprint 3
 
