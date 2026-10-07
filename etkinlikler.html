@@ -2,71 +2,46 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Kampüs Etkinlikleri - Etkinlikler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampüs Etkinlikleri - Tüm Etkinlikler</title>
+    <link rel="stylesheet" href="css/numaran.css">
+    <script type="module" src="js/event-list.js"></script>
 </head>
 <body>
     <header>
         <h1>Kampüs Etkinlikleri</h1>
         <nav>
-            <a href="index.html">Ana Sayfa</a> |
-            <a href="etkinlikler.html">Etkinlikler</a> |
-            <a href="etkinlik-detay.html">Detay</a> |
-            <a href="etkinlik-ekle.html">Ekle</a> |
-            <a href="etkinlik-guncelle.html">Güncelle</a>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="etkinlikler.html" class="active">Etkinlikler</a>
+            <a href="etkinlik-ekle.html">Ekle</a>
         </nav>
     </header>
 
     <main>
-        <table border="1">
-            <caption>Etkinlikler</caption>
-            <tr>
-                <td>
-                    <article>
-                        <h2>Kariyer Günleri 2026</h2>
-                        <p>Seminer · <time datetime="2026-10-12">12 Ekim</time> · A Blok</p>
-                        <p>Sektör temsilcileri ile tanışma ve kariyer fırsatlarını değerlendirme etkinliği.</p>
-                        <a href="etkinlik-detay.html">Detayları gör</a>
-                    </article>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <article>
-                        <h2>Robotik Atölyesi</h2>
-                        <p>Atölye · <time datetime="2026-10-20">20 Ekim</time> · Lab 2</p>
-                        <p>Robot yazılımı, sensör entegrasyonu ve otonom sistemler üzerine atölye çalışması.</p>
-                        <a href="etkinlik-detay.html">Detayları gör</a>
-                    </article>
-                </td>
-            </tr>
-        </table>
+        <h2>Tüm Etkinlikler</h2>
+        
+        <form id="filtre-formu" class="filtre">
+            <div class="filtre-grup">
+                <label for="arama">Etkinlik ara</label>
+                <input type="search" id="arama" placeholder="Örn. atölye, kariyer...">
+            </div>
+            <div class="filtre-grup">
+                <label for="kategori-filtre">Kategori</label>
+                <select id="kategori-filtre">
+                    <option value="">Tümü</option>
+                </select>
+            </div>
+        </form>
 
-        <table border="1">
-            <caption>Ayın Programı</caption>
-            <thead>
-                <tr>
-                    <th>Tarih</th>
-                    <th>Etkinlik</th>
-                    <th>Yer</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>12 Ekim</td>
-                    <td>Kariyer Günleri</td>
-                    <td>A Blok</td>
-                </tr>
-                <tr>
-                    <td>20 Ekim</td>
-                    <td>Robotik Atölyesi</td>
-                    <td>Lab 2</td>
-                </tr>
-            </tbody>
-        </table>
+        <p id="sonuc"></p>
+
+        <section id="etkinlik-listesi" class="etkinlik-listesi">
+            <!-- JavaScript tarafı tüm kartları dinamik olarak buraya aktaracak -->
+        </section>
     </main>
 
     <footer>
-        <p>Muhammed Alperen Turan · 2011012045 · 2026</p>
+        <p>Alperen · 20231047 · 2026</p>
     </footer>
 </body>
 </html>

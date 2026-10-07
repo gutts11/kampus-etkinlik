@@ -1,29 +1,51 @@
-# Kampüs Etkinlikleri - Sprint 1
+[https://kampus-etkinlik-sprint1.vercel.app](https://kampus-etkinlik-sprint1.vercel.app)
 
-Bu proje, Kampüs Etkinlikleri uygulamasının iskeletini **yalnızca HTML** (CSS ve JavaScript kullanılmadan) kullanılarak semantik etiketlerle oluşturulmuş versiyonudur.
+# Kampüs Etkinlikleri - Sprint 1, Sprint 2 & Sprint 3
+
+Bu proje, üniversite kampüsündeki seminer, atölye, söyleşi ve konferans etkinliklerini tek bir platformda toplamak amacıyla geliştirilmiştir.
 
 ## Proje Yapısı
 
-- `index.html`: Ana sayfa, uygulama hakkında bilgi ve yaklaşan etkinlikler özeti.
-- `etkinlikler.html`: Tüm etkinliklerin tek sütunlu tablo kart yapısında listesi ve ayın programı özeti.
-- `etkinlik-detay.html`: Seçilen etkinliğin afişi, künye detayları ve açıklaması.
-- `etkinlik-ekle.html`: Yeni etkinlik ekleme formu (semantic form elemanları ve `required` kontrolleri ile).
-- `etkinlik-guncelle.html`: Mevcut etkinliği güncelleme formu (doldurulmuş varsayılan değerler ile).
-- `afis.jpg`: Etkinlik detay sayfasında kullanılan görsel.
+```
+Lecture_1/
+├── css/
+│   ├── numaran.css        # Sprint 2 CSS değişkenleri, duyarlı (responsive) grid ve bileşen stilleri
+│   └── 20231047.css       # Öğrenci numarasına özel CSS dosyası
+├── js/
+│   ├── data.js            # Etkinlik verilerini barındıran modül (en az 6 etkinlik)
+│   ├── event-list.js      # Etkinlik kartlarını üreten, sıralayan ve arama/kategori filtrelemesini çalıştıran modül
+│   ├── event-detail.js    # ?id= parametresine göre etkinlik detayını gösteren veya hata kutusu basan modül
+│   └── event-form.js      # Ekleme ve güncelleme formlarının novalidate doğrulamalarını yapan modül
+├── index.html             # Ana sayfa (Tarihi en yakın 2 etkinlik data-limit="2" ile listelenir)
+├── etkinlikler.html       # Tüm etkinlikler ve arama + kategori filtre alanı
+├── etkinlik-detay.html    # Etkinlik afişi, künye detayları ve güncelleme bağlantısı
+├── etkinlik-ekle.html     # Yeni etkinlik ekleme formu
+├── etkinlik-guncelle.html  # Detay sayfasından yönlendirilen ve verileri dolu gelen güncelleme formu
+├── afis.jpg               # Etkinlik detay görseli
+├── .gitignore
+└── README.md
+```
 
-## Özellikler & Semantik HTML Yapısı
+## Sprint Detayları
 
-- Her sayfada ortak `<header>`, `<nav>`, `<main>` ve `<footer>` iskeleti kullanılmıştır.
-- Her sayfada hiyerarşiye uygun yalnızca **bir adet `<h1>`** başlık bulunur.
-- Tüm form alanları görünür `<label>` elemanlarına sahiptir ve `required` doğrulama özniteliği içerir.
-- Etkinlik listeleri `<table border="1">` ve `<caption>` elemanları ile semantik olarak yapılandırılmıştır.
-- Detay sayfasında `<figure>`, `<figcaption>`, `<dl>`, `<dt>`, `<dd>` ve `<time>` etiketleri kullanılmıştır.
-- Projede herhangi bir CSS veya JavaScript dosyası/kodu kullanılmamıştır.
+### Sprint 1: Semantik HTML Yapısı (`sprint-01`)
+- Semantik HTML5 etiketleri (`header`, `nav`, `main`, `footer`, `section`, `article`, `figure`, `dl`, `dt`, `dd`) kullanılmıştır.
+- Her sayfada hiyerarşiye uygun tek bir `<h1>` yer alır.
 
-## Canlı Adres (Vercel)
+### Sprint 2: CSS ve Responsive Tasarım (`sprint-02`)
+- Örnek Öğrenci No: `20231047` (`--ton: 127`, Hane 7: `"Palatino Linotype", Georgia, serif`).
+- Mobil öncelikli (mobile-first) responsive grid yapısı kurulmuştur (Telefonda 1 sütun, geniş ekranda 2-3 sütun).
+- CSS değişkenleri (`:root`) ile renk ve tipografi yönetilmiştir.
 
-- **Vercel Live URL:** [https://sprint-01-gamma.vercel.app](https://sprint-01-gamma.vercel.app)
+### Sprint 3: JavaScript ve DOM Manipülasyonu (`sprint-03`)
+- `type="module"` ile modüler JS mimarisi kurulmuştur.
+- `index.html`: `data-limit="2"` ile tarihi en yakın 2 etkinlik dinamik sıralanıp basılır.
+- `etkinlikler.html`: `input` ve `change` dinleyicileri ile canlı arama ve kategori filtresi çalışır.
+- `etkinlik-detay.html`: Adres çubuğundaki `?id=...` okunarak doğru etkinlik yüklenir; id bulunamazsa kırmızı hata kutusu gösterilir.
+- `etkinlik-ekle.html` & `etkinlik-guncelle.html`: Form `novalidate` ile istemci tarafında denetlenir, hatalı alanlar kırmızı vurgulanır, başarılı gönderimde JSON formatında çıktı basılır.
 
-## Git ve Sürüm
+## Git Etiketleri
 
-- **Git Tag:** `sprint-01`
+- `sprint-01`: HTML iskelet teslimi
+- `sprint-02`: CSS ve Responsive arayüz teslimi
+- `sprint-03`: JavaScript ve DOM etkileşim teslimi

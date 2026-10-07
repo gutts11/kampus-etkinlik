@@ -2,60 +2,82 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kampüs Etkinlikleri - Etkinlik Güncelle</title>
+    <link rel="stylesheet" href="css/numaran.css">
+    <script type="module" src="js/event-form.js"></script>
 </head>
 <body>
     <header>
-        <h1>Etkinlik Güncelle</h1>
+        <h1>Kampüs Etkinlikleri</h1>
         <nav>
-            <a href="index.html">Ana Sayfa</a> |
-            <a href="etkinlikler.html">Etkinlikler</a> |
-            <a href="etkinlik-detay.html">Detay</a> |
-            <a href="etkinlik-ekle.html">Ekle</a> |
-            <a href="etkinlik-guncelle.html">Güncelle</a>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="etkinlikler.html">Etkinlikler</a>
+            <a href="etkinlik-ekle.html">Ekle</a>
         </nav>
     </header>
 
     <main>
-        <form action="#" method="post">
-            <p>
-                <label for="ad">Etkinlik Adı</label><br>
-                <input type="text" id="ad" name="ad" value="Kariyer Günleri 2026" required>
-            </p>
+        <h2>Etkinlik Güncelle</h2>
+        <p style="margin-bottom: 1rem; color: #666; font-size: 0.9rem;">Alanlar mevcut etkinliğin bilgileriyle dolu gelir. Bu sprintte form veri güncellemez; sonuç aşağıda gösterilir.</p>
 
-            <p>
-                <label for="kategori">Kategori</label><br>
-                <select id="kategori" name="kategori" required>
+        <form id="etkinlik-formu" class="form-container" data-mode="guncelle" novalidate>
+            <div class="form-grup">
+                <label for="ad">Etkinlik Adı *</label>
+                <input type="text" id="ad" name="ad">
+                <span class="hata-mesaj" id="ad-hata"></span>
+            </div>
+
+            <div class="form-grup">
+                <label for="kategori">Kategori *</label>
+                <select id="kategori" name="kategori">
                     <option value="">Seçiniz</option>
-                    <option value="Seminer" selected>Seminer</option>
+                    <option value="Seminer">Seminer</option>
                     <option value="Atölye">Atölye</option>
+                    <option value="Söyleşi">Söyleşi</option>
                     <option value="Konferans">Konferans</option>
                 </select>
-            </p>
+                <span class="hata-mesaj" id="kategori-hata"></span>
+            </div>
 
-            <p>
-                <label for="tarih">Tarih / Saat</label><br>
-                <input type="datetime-local" id="tarih" name="tarih" value="2026-10-12T14:00" required>
-            </p>
+            <div class="form-grup">
+                <label for="tarih">Tarih *</label>
+                <input type="date" id="tarih" name="tarih">
+                <span class="hata-mesaj" id="tarih-hata"></span>
+            </div>
 
-            <p>
-                <label for="yer">Yer</label><br>
-                <input type="text" id="yer" name="yer" value="A Blok Konferans Salonu" required>
-            </p>
+            <div class="form-grup">
+                <label for="saat">Saat *</label>
+                <input type="time" id="saat" name="saat">
+                <span class="hata-mesaj" id="saat-hata"></span>
+            </div>
 
-            <p>
-                <label for="aciklama">Açıklama</label><br>
-                <textarea id="aciklama" name="aciklama" rows="4" cols="40" required>Sektör temsilcileri ile tanışma ve kariyer fırsatlarını değerlendirme etkinliği.</textarea>
-            </p>
+            <div class="form-grup">
+                <label for="yer">Yer *</label>
+                <input type="text" id="yer" name="yer">
+                <span class="hata-mesaj" id="yer-hata"></span>
+            </div>
 
-            <p>
-                <button type="submit">Güncelle</button>
-            </p>
+            <div class="form-grup">
+                <label for="kontenjan">Kontenjan</label>
+                <input type="number" id="kontenjan" name="kontenjan">
+                <span class="hata-mesaj" id="kontenjan-hata"></span>
+            </div>
+
+            <div class="form-grup">
+                <label for="aciklama">Açıklama</label>
+                <textarea id="aciklama" name="aciklama" rows="4"></textarea>
+                <span class="hata-mesaj" id="aciklama-hata"></span>
+            </div>
+
+            <button type="submit" class="btn-primary">Güncelle</button>
         </form>
+
+        <div id="form-mesaj"></div>
     </main>
 
     <footer>
-        <p>Muhammed Alperen Turan · 2011012045 · 2026</p>
+        <p>Alperen · 20231047 · 2026</p>
     </footer>
 </body>
 </html>

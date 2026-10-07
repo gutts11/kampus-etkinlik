@@ -2,56 +2,40 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kampüs Etkinlikleri - Ana Sayfa</title>
+    <link rel="stylesheet" href="css/numaran.css">
+    <script type="module" src="js/event-list.js"></script>
 </head>
 <body>
     <header>
         <h1>Kampüs Etkinlikleri</h1>
         <nav>
-            <a href="index.html">Ana Sayfa</a> |
-            <a href="etkinlikler.html">Etkinlikler</a> |
-            <a href="etkinlik-detay.html">Detay</a> |
-            <a href="etkinlik-ekle.html">Ekle</a> |
-            <a href="etkinlik-guncelle.html">Güncelle</a>
+            <a href="index.html" class="active">Ana Sayfa</a>
+            <a href="etkinlikler.html">Etkinlikler</a>
+            <a href="etkinlik-ekle.html">Ekle</a>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Uygulama Hakkında</h2>
-            <p>Kampüs Etkinlikleri platformu, üniversitemiz bünyesinde gerçekleşecek tüm sosyal, akademik, kültür ve robotik etkinliklerini tek bir çatı altında toplamak amacıyla oluşturulmuş bir platformdur. Öğrenciler tüm etkinlik detaylarına ulaşabilir, yeni etkinlik kaydı oluşturabilir veya mevcut etkinlikleri güncelleyebilirler.</p>
+            <h2>Hakkında</h2>
+            <p>Fakültedeki seminer, atölye ve söyleşileri tek yerden takip edin. Kampüs Etkinlikleri platformu üzerinden yaklaşan etkinlikleri görüntüleyebilir ve yeni etkinlik kaydı oluşturabilirsiniz.</p>
         </section>
 
         <section>
-            <h2>Yaklaşan Etkinlikler</h2>
-            <table border="1">
-                <caption>Öne Çıkan Yaklaşan Etkinlikler</caption>
-                <tr>
-                    <td>
-                        <article>
-                            <h2>Kariyer Günleri 2026</h2>
-                            <p>Kategori: Seminer · Tarih: <time datetime="2026-10-12">12 Ekim</time> · Yer: A Blok</p>
-                            <p>Sektör liderleri ve şirketlerle tanışma fırsatı sunan yıllık kariyer buluşması.</p>
-                            <a href="etkinlik-detay.html">Detayları gör</a>
-                        </article>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <article>
-                            <h2>Robotik Atölyesi</h2>
-                            <p>Kategori: Atölye · Tarih: <time datetime="2026-10-20">20 Ekim</time> · Yer: Lab 2</p>
-                            <p>Otonom sistemler ve temel robotik kodlama konularında uygulamalı eğitim.</p>
-                            <a href="etkinlik-detay.html">Detayları gör</a>
-                        </article>
-                    </td>
-                </tr>
-            </table>
+            <h2>Yaklaşan 2 Etkinlik</h2>
+            <section id="etkinlik-listesi" class="etkinlik-listesi" data-limit="2">
+                <!-- JavaScript tarafı veriden dinamik dolduracak -->
+            </section>
+            <p style="margin-top: 1.5rem;">
+                <a href="etkinlikler.html" class="btn-primary">Tüm etkinlikleri gör &rarr;</a>
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>Muhammed Alperen Turan· 2011012045 · 2026</p>
+        <p>Alperen · 20231047 · 2026</p>
     </footer>
 </body>
 </html>
