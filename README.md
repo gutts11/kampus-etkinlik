@@ -1,4 +1,4 @@
-[https://sprint-03-gamma.vercel.app/](https://sprint-03-gamma.vercel.app/)
+[https://muhammedalperenturan-frontend.vercel.app](https://muhammedalperenturan-frontend.vercel.app)
 
 # Kampüs Etkinlikleri — Sprint 6 ve Vize Projesi (React Router, Context API & Form Mimarisi)
 
