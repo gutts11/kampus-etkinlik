@@ -1,8 +1,8 @@
 [https://sprint-03-gamma.vercel.app/](https://sprint-03-gamma.vercel.app/)
 
-# Kampüs Etkinlikleri - Sprint 1, Sprint 2 & Sprint 3
+# Kampüs Etkinlikleri - Sprint 4 (Vite, TypeScript ve React)
 
-Bu proje, üniversite kampüsündeki seminer, atölye, söyleşi ve konferans etkinliklerini tek bir platformda toplamak amacıyla geliştirilmiştir.
+Bu proje, Kampüs Etkinlikleri uygulamasının React ve TypeScript (Vite `react-ts` şablonu) kullanılarak geliştirilmiş versiyonudur.
 
 ## Öğrenci Bilgileri
 
@@ -11,37 +11,19 @@ Bu proje, üniversite kampüsündeki seminer, atölye, söyleşi ve konferans et
 - **Hesaplanan Ton:** `205` (`mod(2011012045, 360) = 205`)
 - **Hesaplanan Font (Son hane 5):** `"Times New Roman", Times, serif`
 
-## Proje Yapısı
+## Adım 2: Proje Dosyaları ve Görevleri
 
-```
-Lecture_1/
-├── css/
-│   ├── numaran.css        # Sprint 2: HSL renk paleti (--ton: 205), "Times New Roman" font, grid ve responsive stiller
-│   └── 2011012045.css     # Öğrenci numarasına özel CSS dosyası
-├── js/
-│   ├── data.js            # Etkinlik verilerini barındıran modül (en az 6 etkinlik, benzersiz id'ler)
-│   ├── event-list.js      # Etkinlik kartlarını üreten, sıralayan ve arama/kategori filtrelemesini çalıştıran modül
-│   ├── event-detail.js    # ?id= parametresine göre etkinlik detayını gösteren veya hata kutusu basan modül
-│   └── event-form.js      # Ekleme ve güncelleme formlarının novalidate doğrulamalarını yapan modül
-├── index.html             # Ana sayfa (Tarihi en yakın 2 etkinlik data-limit="2" ile listelenir)
-├── etkinlikler.html       # Tüm etkinlikler ve arama + kategori filtre alanı
-├── etkinlik-detay.html    # Etkinlik afişi, künye detayları ve güncelleme bağlantısı
-├── etkinlik-ekle.html     # Yeni etkinlik ekleme formu
-├── etkinlik-guncelle.html  # Detay sayfasından yönlendirilen ve verileri dolu gelen güncelleme formu
-├── afis.jpg               # Etkinlik detay görseli
-├── .gitignore
-└── README.md
-```
-
-## Kontrol Edilen 10 Madde Doğrulaması
-
-1. ✅ **`data.js`'te en az 6 etkinlik, id'ler benzersiz**: `event-1`'den `event-6`'ya kadar 6 adet benzersiz nesne tanımlıdır.
-2. ✅ **Liste veriden üretiliyor**: `event-list.js` modülü verileri dinamik olarak kartlara dönüştürür.
-3. ✅ **HTML'de elle yazılmış kart yok**: `index.html` ve `etkinlikler.html` sayfalarında elle yazılmış kart kalmamış, container bölümleri boş bırakılmıştır.
-4. ✅ **Arama + kategori birlikte çalışıyor**: Canlı arama ve kategori seçimi kombinasyonlu şekilde filtreleme yapar.
-5. ✅ **Sonuç yoksa mesaj çıkıyor**: Filtre eşleşmediğinde `"Aramanıza uygun etkinlik bulunamadı."` uyarısı verilir.
-6. ✅ **`?id=event-3` doğru etkinliği açıyor**: URLSearchParams ile `id` okunur ve doğru etkinlik detayları basılır.
-7. ✅ **Geçersiz id'de hata kutusu, sayfa çökmüyor**: Hatalı veya bulunamayan id aramalarında konsol hatası üretmeden red alert kutusu basılır.
-8. ✅ **Kaydet sayfayı yenilemiyor**: Form `novalidate` ve `e.preventDefault()` ile yenilenmeden işlenir.
-9. ✅ **Hata ve başarı mesajı görünüyor**: Eksik/hatalı alanlar kırmızı aria-invalid ve span uyarısı alır; başarılı gönderimde yeşil kutuda JSON nesnesi basılır.
-10. ✅ **Konsolda kırmızı hata yok**: Tüm modüller hata vermeden temiz çalışır.
+- **`package.json`**: Proje adını, çalıştırma/derleme komutlarını (`dev`, `build`, `preview`) ve bağımlı paket listesini tutar.
+- **`package-lock.json`**: Yüklenen tüm paketlerin ve alt bağımlılıklarının tam sürüm ağaçlarını kilitler.
+- **`node_modules/`**: İndirilen harici kütüphanelerin bulunduğu klasördür; `.gitignore` ile GitHub'a gönderilmez.
+- **`tsconfig*.json`**: TypeScript derleyicisinin sıkı tip denetimi ve modül çözümleme ayarlarını içerir.
+- **`vite.config.ts`**: Vite geliştirme sunucusu ve üretim derlemesi yapılandırmasını, React eklentisini barındırır.
+- **`index.html`**: Uygulamanın tek HTML sayfasıdır; React bileşenlerinin içine çizileceği boş `<div id="root">` elemanını taşır.
+- **`src/main.tsx`**: React uygulamasını başlatır ve `createRoot` ile `App` bileşenini `#root` elemanına bağlar.
+- **`src/App.tsx`**: Uygulamanın ana bileşenidir; 5 sayfanın tamamını, state yönetimini (`useState`) ve sekme başlığı efektini (`useEffect`) barındırır.
+- **`src/App.css`**: Uygulamanın öğrenci numarasına göre özelleştirilmiş (Sprint 2/3'ten taşınan) tüm görsel stillerini içerir.
+- **`src/index.css`**: Tüm sayfaya uygulanan genel sıfırlama/temel stil dosyasıdır (bu sprintte boş bırakılmıştır).
+- **`public/`**: Vite tarafından işlenmeden doğrudan kök dizine kopyalanan statik dosyaları (`afis.svg`, `favicon.svg`) tutar.
+- **`src/types/campus-event.ts`**: Etkinlik nesnesinin yapısını (`CampusEvent` arayüzü) ve `Category` birleşim tipini (`union type`) tanımlar.
+- **`src/data/events.ts`**: `CampusEvent[]` tipinde en az 6 örnek kampüs etkinliği verisini barındırır.
+- **`src/utils/filter-events.ts`**: DOM'a dokunmadan çalışan saf (pure) arama (`searchEvents`), kategori filtreleme (`filterByCategory`) ve ID ile bulma (`findEventById`) fonksiyonlarını içerir.
