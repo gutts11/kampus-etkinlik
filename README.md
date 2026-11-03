@@ -1,8 +1,8 @@
 [https://sprint-03-gamma.vercel.app/](https://sprint-03-gamma.vercel.app/)
 
-# Kampüs Etkinlikleri - Sprint 4 (Vite, TypeScript ve React)
+# Kampüs Etkinlikleri — Sprint 6 ve Vize Projesi (React Router, Context API & Form Mimarisi)
 
-Bu proje, Kampüs Etkinlikleri uygulamasının React ve TypeScript (Vite `react-ts` şablonu) kullanılarak geliştirilmiş versiyonudur.
+Bu proje, Kampüs Etkinlikleri uygulamasının **React Router v7 (`react-router-dom`)**, **Context API (`EventsContext`)** ve **Controlled Form Doğrulama (`validateEvent`)** mimarisiyle geliştirilmiş 10 sayfalı vize teslim sürümüdür.
 
 ## Öğrenci Bilgileri
 
@@ -11,19 +11,28 @@ Bu proje, Kampüs Etkinlikleri uygulamasının React ve TypeScript (Vite `react-
 - **Hesaplanan Ton:** `205` (`mod(2011012045, 360) = 205`)
 - **Hesaplanan Font (Son hane 5):** `"Times New Roman", Times, serif`
 
-## Adım 2: Proje Dosyaları ve Görevleri
+## Route Haritası (10 Adres, 10 Sayfa)
 
-- **`package.json`**: Proje adını, çalıştırma/derleme komutlarını (`dev`, `build`, `preview`) ve bağımlı paket listesini tutar.
-- **`package-lock.json`**: Yüklenen tüm paketlerin ve alt bağımlılıklarının tam sürüm ağaçlarını kilitler.
-- **`node_modules/`**: İndirilen harici kütüphanelerin bulunduğu klasördür; `.gitignore` ile GitHub'a gönderilmez.
-- **`tsconfig*.json`**: TypeScript derleyicisinin sıkı tip denetimi ve modül çözümleme ayarlarını içerir.
-- **`vite.config.ts`**: Vite geliştirme sunucusu ve üretim derlemesi yapılandırmasını, React eklentisini barındırır.
-- **`index.html`**: Uygulamanın tek HTML sayfasıdır; React bileşenlerinin içine çizileceği boş `<div id="root">` elemanını taşır.
-- **`src/main.tsx`**: React uygulamasını başlatır ve `createRoot` ile `App` bileşenini `#root` elemanına bağlar.
-- **`src/App.tsx`**: Uygulamanın ana bileşenidir; 5 sayfanın tamamını, state yönetimini (`useState`) ve sekme başlığı efektini (`useEffect`) barındırır.
-- **`src/App.css`**: Uygulamanın öğrenci numarasına göre özelleştirilmiş (Sprint 2/3'ten taşınan) tüm görsel stillerini içerir.
-- **`src/index.css`**: Tüm sayfaya uygulanan genel sıfırlama/temel stil dosyasıdır (bu sprintte boş bırakılmıştır).
-- **`public/`**: Vite tarafından işlenmeden doğrudan kök dizine kopyalanan statik dosyaları (`afis.svg`, `favicon.svg`) tutar.
-- **`src/types/campus-event.ts`**: Etkinlik nesnesinin yapısını (`CampusEvent` arayüzü) ve `Category` birleşim tipini (`union type`) tanımlar.
-- **`src/data/events.ts`**: `CampusEvent[]` tipinde en az 6 örnek kampüs etkinliği verisini barındırır.
-- **`src/utils/filter-events.ts`**: DOM'a dokunmadan çalışan saf (pure) arama (`searchEvents`), kategori filtreleme (`filterByCategory`) ve ID ile bulma (`findEventById`) fonksiyonlarını içerir.
+| Adres | Sayfa Bileşeni | Açıklama |
+| :--- | :--- | :--- |
+| `/` | `HomePage` | Tarihi en yakın 2 etkinliği ve tüm etkinliklere geçiş bağlantısını gösterir. |
+| `/events` | `EventsPage` | Canlı arama ve kategori filtresiyle tüm etkinlikleri listeler. |
+| `/events/:id` | `EventDetailPage` | Adresteki ID'ye göre etkinliğin afişini, künyesini ve açıklamasını gösterir. |
+| `/admin` | `AdminPage` | Etkinlik yönetim tablosu (masaüstünde tablo, mobilde kart görünümü; onaylı silme). |
+| `/admin/new` | `AddEventPage` | Doğrulamalı yeni etkinlik ekleme formu. |
+| `/admin/:id/edit` | `EditEventPage` | Mevcut etkinliği düzenleme ve güncelleme formu. |
+| `/login` | `LoginPage` | E-posta ve şifre doğrulamalı giriş sayfası. |
+| `/register` | `RegisterPage` | Ad soyad, e-posta ve şifre eşleşme kontrollü kayıt sayfası. |
+| `/forgot-password` | `ForgotPasswordPage` | E-posta doğrulamalı şifre sıfırlama sayfası. |
+| `*` | `NotFoundPage` | Geçersiz adres veya bulunamayan etkinlikler için 404 hata sayfası. |
+
+## Klasör ve Dosya Yapısı (`frontend/`)
+
+- **`src/context/EventsContext.tsx`**: Merkezi `events` listesini ve `addEvent`, `updateEvent`, `deleteEvent` fonksiyonlarını sağlayan Context yapısı.
+- **`src/pages/`**: 10 route'a karşılık gelen 10 sayfa bileşeni (`HomePage`, `EventsPage`, `EventDetailPage`, `AdminPage`, `AddEventPage`, `EditEventPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `NotFoundPage`).
+- **`src/components/layout/`**: `Header` (route'a göre dinamik başlık ve `document.title`), `Navigation` (`NavLink` ile aktif sayfa vurgusu) ve `Footer`.
+- **`src/components/events/`**: `EventCard`, `EventList`, `EventFilter`, `EventDetail`.
+- **`src/components/forms/`**: `EventForm` (controlled input'lar ve `noValidate` ile özel hata mesajları).
+- **`src/utils/`**: `filter-events.ts`, `format-date.ts` ve `validate-event.ts`.
+- **`src/types/campus-event.ts`**: `Category`, `CampusEvent` ve `EventFormData` tip tanımları.
+- **`src/data/events.ts`**: Başlangıçtaki 6 kampüs etkinliği verisi.

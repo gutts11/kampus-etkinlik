@@ -1,74 +1,54 @@
+import { Link } from "react-router-dom";
 import type { CampusEvent } from "../../types/campus-event";
 import { formatDate } from "../../utils/format-date";
 
 interface EventDetailProps {
   event: CampusEvent;
-  onBack: () => void;
-  onEdit: (id: string) => void;
 }
 
-function EventDetail({ event, onBack, onEdit }: EventDetailProps) {
+function EventDetail({ event }: EventDetailProps) {
   return (
     <article className="detay">
-      <div className="detay-grid">
+      <div className="detay-ust">
         {event.image && (
-          <div className="detay-gorsel">
-            <figure>
-              <img src={event.image} alt={`${event.title} afişi`} />
-              <figcaption>{event.title} afişi</figcaption>
-            </figure>
-          </div>
+          <figure>
+            <img
+              src={event.image}
+              alt={`${event.title} afişi`}
+              width="480"
+              height="270"
+            />
+            <figcaption>{event.title} afişi</figcaption>
+          </figure>
         )}
-
-        <div className="kunye-kutu">
+        <section className="kunye">
           <h2>Etkinlik Künyesi</h2>
-          <dl className="kunye">
+          <dl>
             <dt>Tarih</dt>
             <dd>
               <time dateTime={`${event.date}T${event.time}`}>
                 {formatDate(event.date)}, {event.time}
               </time>
             </dd>
-
             <dt>Yer</dt>
             <dd>{event.location}</dd>
-
             <dt>Kategori</dt>
             <dd>{event.category}</dd>
-
             <dt>Kontenjan</dt>
             <dd>{event.capacity} kişi</dd>
           </dl>
-        </div>
+        </section>
       </div>
-
-      <div className="detay-aciklama">
-        <h2>Açıklama</h2>
-        <p>{event.description}</p>
-      </div>
-
-      <div className="detay-butonlar">
-        <a
-          href="#events"
-          className="btn-secondary"
-          onClick={(e) => {
-            e.preventDefault();
-            onBack();
-          }}
-        >
-          &larr; Listeye dön
-        </a>
-        <a
-          href={`#update-${event.id}`}
-          className="btn-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            onEdit(event.id);
-          }}
-        >
+      <h2>Açıklama</h2>
+      <p>{event.description}</p>
+      <p className="form-butonlar">
+        <Link className="buton" to="/events">
+          Listeye dön
+        </Link>
+        <Link className="buton" to={`/admin/${event.id}/edit`}>
           Bu etkinliği güncelle
-        </a>
-      </div>
+        </Link>
+      </p>
     </article>
   );
 }

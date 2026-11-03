@@ -3,27 +3,21 @@ import EventCard from "./EventCard";
 
 interface EventListProps {
   events: CampusEvent[];
-  onShowDetail: (id: string) => void;
   emptyText?: string;
 }
 
 function EventList({
   events,
-  onShowDetail,
-  emptyText = "Aramanıza uygun etkinlik bulunamadı.",
+  emptyText = "Gösterilecek etkinlik yok.",
 }: EventListProps) {
   if (events.length === 0) {
-    return <p className="sonuc-satiri">{emptyText}</p>;
+    return <p className="sonuc">{emptyText}</p>;
   }
 
   return (
-    <section className="etkinlik-listesi">
+    <section className="etkinlik-listesi" aria-label="Etkinlikler">
       {events.map((event) => (
-        <EventCard
-          key={event.id}
-          event={event}
-          onShowDetail={onShowDetail}
-        />
+        <EventCard key={event.id} event={event} />
       ))}
     </section>
   );
