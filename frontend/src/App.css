@@ -1,7 +1,7 @@
 /* Alperen — 2011012045 */
 :root {
   --no: 2011012045;
-  --ton: mod(var(--no), 360);
+  --ton: 205;
   --renk-ana: hsl(var(--ton) 65% 38%);
   --renk-ana-koyu: hsl(var(--ton) 65% 28%);
   --renk-yardimci: hsl(calc(var(--ton) + 180) 60% 45%);
