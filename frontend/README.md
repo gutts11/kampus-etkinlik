@@ -1,6 +1,21 @@
-[https://sprint-03-gamma.vercel.app/](https://sprint-03-gamma.vercel.app/)
+[https://muhammedalperenturan-frontend.vercel.app](https://muhammedalperenturan-frontend.vercel.app)
 
 # Kampüs Etkinlikleri — Frontend (Sprint 6 & Vize)
+
+## Kurulum ve Çalıştırma
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Üretim derlemesi almak için:
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Özellikler
 - **10 Route & 10 Sayfa**: `/`, `/events`, `/events/:id`, `/admin`, `/admin/new`, `/admin/:id/edit`, `/login`, `/register`, `/forgot-password`, `*` (`NotFoundPage`).

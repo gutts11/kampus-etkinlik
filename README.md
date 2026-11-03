@@ -4,9 +4,26 @@
 
 Bu proje, Kampüs Etkinlikleri uygulamasının **React Router v7 (`react-router-dom`)**, **Context API (`EventsContext`)** ve **Controlled Form Doğrulama (`validateEvent`)** mimarisiyle geliştirilmiş 10 sayfalı vize teslim sürümüdür.
 
+## Kurulum ve Çalıştırma
+
+Projeyi yerel bilgisayarınızda çalıştırmak için terminalde şu komutları izleyin:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Üretim derlemesi (build) almak ve önizlemek için:
+
+```bash
+npm run build
+npm run preview
+```
+
 ## Öğrenci Bilgileri
 
-- **Öğrenci Adı:** Alperen
+- **Öğrenci Adı:** Muhammed Alperen Turan
 - **Öğrenci No:** `2011012045`
 - **Hesaplanan Ton:** `205` (`mod(2011012045, 360) = 205`)
 - **Hesaplanan Font (Son hane 5):** `"Times New Roman", Times, serif`
@@ -28,6 +45,17 @@ Bu proje, Kampüs Etkinlikleri uygulamasının **React Router v7 (`react-router-
 
 ## Klasör ve Dosya Yapısı (`frontend/`)
 
+- **`package.json`**: Proje adı, komutlar (`dev`, `build`, `preview`) ve paket listesi (`react`, `react-dom`, `react-router-dom`).
+- **`package-lock.json`**: Yüklenen paketlerin tam sürümleri.
+- **`node_modules/`**: İndirilen paketler; `.gitignore` ile GitHub'a gitmez.
+- **`tsconfig*.json`**: TypeScript ayarları.
+- **`vite.config.ts`**: Vite ayarları ve React eklentisi.
+- **`index.html`**: Tek HTML dosyası; içinde boş `div#root` bulunur.
+- **`src/main.tsx`**: React'i başlatır, `BrowserRouter` ve `EventsProvider` içinde `App`'i `root`'a çizer.
+- **`src/App.tsx`**: Uygulamanın ana bileşeni ve 10 route tanımı (`Routes` / `Route`).
+- **`src/App.css`**: Öğrenci numarasına göre özelleştirilmiş tüm stiller ve mobil tablo/kart kuralları.
+- **`src/index.css`**: Tüm sayfaya genel stil (bu sprintte boş).
+- **`public/`**: Olduğu gibi kopyalanan dosyalar (`afis.svg`, `favicon.svg`).
 - **`src/context/EventsContext.tsx`**: Merkezi `events` listesini ve `addEvent`, `updateEvent`, `deleteEvent` fonksiyonlarını sağlayan Context yapısı.
 - **`src/pages/`**: 10 route'a karşılık gelen 10 sayfa bileşeni (`HomePage`, `EventsPage`, `EventDetailPage`, `AdminPage`, `AddEventPage`, `EditEventPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `NotFoundPage`).
 - **`src/components/layout/`**: `Header` (route'a göre dinamik başlık ve `document.title`), `Navigation` (`NavLink` ile aktif sayfa vurgusu) ve `Footer`.
