@@ -1,25 +1,8 @@
 [https://muhammedalperenturan-frontend.vercel.app](https://muhammedalperenturan-frontend.vercel.app)
 
-# Kampüs Etkinlikleri — Sprint 6 ve Vize Projesi (React Router, Context API & Form Mimarisi)
+# Kampüs Etkinlikleri — Fullstack Monorepo (Sprint 1 - 7)
 
-Bu proje, Kampüs Etkinlikleri uygulamasının **React Router v7 (`react-router-dom`)**, **Context API (`EventsContext`)** ve **Controlled Form Doğrulama (`validateEvent`)** mimarisiyle geliştirilmiş 10 sayfalı vize teslim sürümüdür.
-
-## Kurulum ve Çalıştırma
-
-Projeyi yerel bilgisayarınızda çalıştırmak için terminalde şu komutları izleyin:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Üretim derlemesi (build) almak ve önizlemek için:
-
-```bash
-npm run build
-npm run preview
-```
+Bu proje deposu içerisinde ön yüz (`frontend/`) ve sunucu (`backend/`) katmanları birbirinden bağımsız iki modül olarak konumlandırılmıştır.
 
 ## Öğrenci Bilgileri
 
@@ -28,39 +11,64 @@ npm run preview
 - **Hesaplanan Ton:** `205` (`mod(2011012045, 360) = 205`)
 - **Hesaplanan Font (Son hane 5):** `"Times New Roman", Times, serif`
 
-## Route Haritası (10 Adres, 10 Sayfa)
+---
 
-| Adres | Sayfa Bileşeni | Açıklama |
-| :--- | :--- | :--- |
-| `/` | `HomePage` | Tarihi en yakın 2 etkinliği ve tüm etkinliklere geçiş bağlantısını gösterir. |
-| `/events` | `EventsPage` | Canlı arama ve kategori filtresiyle tüm etkinlikleri listeler. |
-| `/events/:id` | `EventDetailPage` | Adresteki ID'ye göre etkinliğin afişini, künyesini ve açıklamasını gösterir. |
-| `/admin` | `AdminPage` | Etkinlik yönetim tablosu (masaüstünde tablo, mobilde kart görünümü; onaylı silme). |
-| `/admin/new` | `AddEventPage` | Doğrulamalı yeni etkinlik ekleme formu. |
-| `/admin/:id/edit` | `EditEventPage` | Mevcut etkinliği düzenleme ve güncelleme formu. |
-| `/login` | `LoginPage` | E-posta ve şifre doğrulamalı giriş sayfası. |
-| `/register` | `RegisterPage` | Ad soyad, e-posta ve şifre eşleşme kontrollü kayıt sayfası. |
-| `/forgot-password` | `ForgotPasswordPage` | E-posta doğrulamalı şifre sıfırlama sayfası. |
-| `*` | `NotFoundPage` | Geçersiz adres veya bulunamayan etkinlikler için 404 hata sayfası. |
+## 🚀 Hızlı Başlangıç (Kurulum ve Çalıştırma)
 
-## Klasör ve Dosya Yapısı (`frontend/`)
+### 1. Backend (REST API Sunucusu)
+```bash
+cd backend
+npm install
+npm run dev
+```
+Sunucu `http://localhost:3000` adresinde çalışır.
 
-- **`package.json`**: Proje adı, komutlar (`dev`, `build`, `preview`) ve paket listesi (`react`, `react-dom`, `react-router-dom`).
-- **`package-lock.json`**: Yüklenen paketlerin tam sürümleri.
-- **`node_modules/`**: İndirilen paketler; `.gitignore` ile GitHub'a gitmez.
-- **`tsconfig*.json`**: TypeScript ayarları.
-- **`vite.config.ts`**: Vite ayarları ve React eklentisi.
-- **`index.html`**: Tek HTML dosyası; içinde boş `div#root` bulunur.
-- **`src/main.tsx`**: React'i başlatır, `BrowserRouter` ve `EventsProvider` içinde `App`'i `root`'a çizer.
-- **`src/App.tsx`**: Uygulamanın ana bileşeni ve 10 route tanımı (`Routes` / `Route`).
-- **`src/App.css`**: Öğrenci numarasına göre özelleştirilmiş tüm stiller ve mobil tablo/kart kuralları.
-- **`src/index.css`**: Tüm sayfaya genel stil (bu sprintte boş).
-- **`public/`**: Olduğu gibi kopyalanan dosyalar (`afis.svg`, `favicon.svg`).
-- **`src/context/EventsContext.tsx`**: Merkezi `events` listesini ve `addEvent`, `updateEvent`, `deleteEvent` fonksiyonlarını sağlayan Context yapısı.
-- **`src/pages/`**: 10 route'a karşılık gelen 10 sayfa bileşeni (`HomePage`, `EventsPage`, `EventDetailPage`, `AdminPage`, `AddEventPage`, `EditEventPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `NotFoundPage`).
-- **`src/components/layout/`**: `Header` (route'a göre dinamik başlık ve `document.title`), `Navigation` (`NavLink` ile aktif sayfa vurgusu) ve `Footer`.
-- **`src/components/events/`**: `EventCard`, `EventList`, `EventFilter`, `EventDetail`.
-- **`src/components/forms/`**: `EventForm` (controlled input'lar ve `noValidate` ile özel hata mesajları).
-- **`src/utils/`**: `filter-events.ts`, `format-date.ts` ve `validate-event.ts`.
-- **`src/types/campus-event.ts`**: `Category`, `CampusEvent` ve `EventFormData` tip tanımları.
-- **`src/data/events.ts`**: Başlangıçtaki 6 kampüs etkinliği verisi.
+### 2. Frontend (React + TypeScript Uygulaması)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Ön yüz `http://localhost:5173` adresinde çalışır.
+
+---
+
+## 📁 Proje Klasör Yapısı
+
+```
+kampus-etkinlik/
+├── frontend/                     # React + TypeScript + Vite (Sprint 4-6)
+│   ├── src/
+│   │   ├── components/           # layout, events, forms bileşenleri
+│   │   ├── context/              # EventsContext.tsx
+│   │   ├── pages/                # 10 route sayfası
+│   │   └── utils/
+│   ├── package.json
+│   └── README.md
+├── backend/                      # Node.js + Express REST API (Sprint 7)
+│   ├── src/
+│   │   ├── controllers/          # event-controller.js
+│   │   ├── data/                 # events.js (Bellek içi etkinlik verisi)
+│   │   ├── routes/               # event-routes.js
+│   │   ├── app.js                # Express app, middleware ve route tanımları
+│   │   └── server.js             # Sunucu başlatıcı ve port dinleyici
+│   ├── requests/
+│   │   └── kampus-api.json       # Postman v2.1 Test Koleksiyonu
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── package.json
+│   └── README.md
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 📡 Backend REST API Sözleşmesi (Sprint 7)
+
+| Method | Endpoint | Amaç | Başarılı | Hata |
+| :--- | :--- | :--- | :--- | :--- |
+| **GET** | `/health` | Sunucu sağlık durumu ve öğrenci no (`2011012045`) | `200 OK` | — |
+| **GET** | `/events` | Etkinlik listesi (`?category=` destekli) | `200 OK` | — |
+| **GET** | `/events/:id` | Tekil etkinlik detay | `200 OK` | `404 Not Found` |
+| **POST** | `/events` | Yeni etkinlik ekleme | `201 Created` | `400 Bad Request` |
