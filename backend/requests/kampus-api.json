@@ -44,12 +44,12 @@
       "response": []
     },
     {
-      "name": "GET /events/event-2",
+      "name": "GET /events/:id",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/events/event-2",
+          "raw": "http://localhost:3000/events/69dc1ac2b684aa92d9173d41",
           "protocol": "http",
           "host": [
             "localhost"
@@ -57,7 +57,7 @@
           "port": "3000",
           "path": [
             "events",
-            "event-2"
+            "69dc1ac2b684aa92d9173d41"
           ]
         }
       },
